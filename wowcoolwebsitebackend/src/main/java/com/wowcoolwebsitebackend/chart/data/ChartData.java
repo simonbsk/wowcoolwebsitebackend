@@ -1,5 +1,6 @@
 package com.wowcoolwebsitebackend.chart.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wowcoolwebsitebackend.chart.Chart;
 
 import jakarta.persistence.Column;
@@ -29,6 +30,7 @@ public class ChartData {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "chart_id")
+	@JsonIgnore
 	private Chart chart;
 
 	public ChartData() {

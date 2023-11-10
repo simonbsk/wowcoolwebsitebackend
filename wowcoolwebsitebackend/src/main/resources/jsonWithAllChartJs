@@ -1,0 +1,23 @@
+{
+  id: 1,
+	chartData:
+{
+  type: "scatter",
+  data: {
+	labels: [],
+    datasets: [{
+      pointRadius: 4,
+      pointBackgroundColor: "rgba(0,0,255,1)",
+      borderColor: [],
+	  barColor: [],
+	  data: [],
+    }]
+  },
+  options: {
+  	title: {
+		display: true,
+		text: "Title123",
+	}
+  }
+}
+}
