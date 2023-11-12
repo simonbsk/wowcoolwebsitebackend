@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.wowcoolwebsitebackend.chart.data.Chart;
+
 @Service
 public record ChartService (ChartRepository chartRepository) {
 

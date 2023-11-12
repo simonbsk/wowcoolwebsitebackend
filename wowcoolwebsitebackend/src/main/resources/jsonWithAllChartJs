@@ -1,23 +1,34 @@
 {
-  id: 1,
-	chartData:
-{
-  type: "scatter",
-  data: {
-	labels: [],
-    datasets: [{
-      pointRadius: 4,
-      pointBackgroundColor: "rgba(0,0,255,1)",
-      borderColor: [],
-	  barColor: [],
-	  data: [],
-    }]
-  },
-  options: {
-  	title: {
-		display: true,
-		text: "Title123",
-	}
+  "id": 1,
+  "chartData": {
+    "type": "scatter",
+    "data": {
+      "labels": [],
+      "datasets": [{
+        "pointRadius": 4,
+        "pointBackgroundColor": "rgba(0,0,255,1)",
+        "borderColor": [],
+        "barColor": [],
+        "data": [],
+        "fill": false
+      }]
+    },
+    "options": {
+      "title": {
+        "display": true,
+        "text": "Title123"
+      },
+      "legend": {
+        "display": false
+      },
+      "scales": {
+        "yAxes": [{
+          "ticks": {
+            "min": 6,
+            "max": 16
+          }
+        }]
+      }
+    }
   }
-}
 }

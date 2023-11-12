@@ -1,82 +1,27 @@
 package com.wowcoolwebsitebackend.chart.data;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.wowcoolwebsitebackend.chart.Chart;
+import java.util.ArrayList;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "chart_data")
+@Table(name = "chart_data_table")
 public class ChartData {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "chart_data_id")
-	private long chartDataId;
-
-	@Column(name = "variable_x")
-	private long variableX;
-
-	@Column(name = "variable_y")
-	private long variableY;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "chart_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
-	private Chart chart;
+	@Column(name = "chart_data_id")
+	private Long chartDataId;
 
-	public ChartData() {
-	}
+	@Column(name = "type")
+	private String type;
 
-	public ChartData(final long chartDataId, final long variableX, final long variableY, final Chart chart) {
-		this.chartDataId = chartDataId;
-		this.variableX = variableX;
-		this.variableY = variableY;
-		this.chart = chart;
-	}
+	@OneToMany(mappedBy = "chartData", cascade = CascadeType.ALL)
+	private ArrayList<Data> dataList;
 
-	@Override
-	public String toString() {
-		return "ChartData{" + "chartDataId=" + chartDataId + ", variableX=" + variableX + ", variableY=" + variableY + ", chart=" + chart + '}';
-	}
+	@OneToMany(mappedBy = "chartData", cascade = CascadeType.ALL)
+	private ArrayList<Options> optionsList;
 
-	public long getChartDataId() {
-		return chartDataId;
-	}
-
-	public void setChartDataId(final long chartDataId) {
-		this.chartDataId = chartDataId;
-	}
-
-	public long getVariableX() {
-		return variableX;
-	}
-
-	public void setVariableX(final long variableX) {
-		this.variableX = variableX;
-	}
-
-	public long getVariableY() {
-		return variableY;
-	}
-
-	public void setVariableY(final long variableY) {
-		this.variableY = variableY;
-	}
-
-	public Chart getChart() {
-		return chart;
-	}
-
-	public void setChart(final Chart chart) {
-		this.chart = chart;
-	}
 }

@@ -1,0 +1,21 @@
+package com.wowcoolwebsitebackend.chart.data;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "ticks_table")
+public class Ticks {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
+	@Column(name = "ticks_id")
+	private Long ticksId;
+
+	@Column(name = "min")
+	private int min;
+
+	@Column(name = "max")
+	private int max;
+}
