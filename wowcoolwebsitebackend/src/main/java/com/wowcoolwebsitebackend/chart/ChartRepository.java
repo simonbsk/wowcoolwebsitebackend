@@ -7,4 +7,5 @@ import com.wowcoolwebsitebackend.chart.data.Chart;
 
 @Repository
 public interface ChartRepository extends JpaRepository<Chart, Long> {
+    Chart findByChartId(Long chartId);
 }

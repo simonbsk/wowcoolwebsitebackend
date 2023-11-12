@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import com.wowcoolwebsitebackend.chart.data.Chart;
 
 @Service
-public record ChartService (ChartRepository chartRepository) {
+public record ChartService(ChartRepository chartRepository) {
 
-	public List<Chart> findAllCharts() {
-		return chartRepository.findAll();
-	}
+    public List<Chart> findAllCharts() {
+        return chartRepository.findAll();
+    }
 
-	public Chart findChartById(Long id) {
-		return chartRepository.findById(id).orElseThrow();
-	}
+    public Chart findChartByChartId(Long chartId) {
+        return chartRepository.findByChartId(chartId);
+    }
 
 }

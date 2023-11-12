@@ -24,8 +24,8 @@ public record ChartController(ChartService chartService) {
 	}
 
 	@GetMapping("/{id}")
-	public Chart getChartById(@PathVariable long id) {
-		return chartService.findChartById(id);
+	public Chart getChartByChartId(@PathVariable long id) {
+		return chartService.findChartByChartId(id);
 	}
 
 }

@@ -20,4 +20,28 @@ public class Legend implements Displayable {
 	public boolean isDisplay() {
 		return display;
 	}
+
+	public Legend() {
+	}
+
+	public Legend(Long legendId) {
+		this.legendId = legendId;
+	}
+
+	public Legend(Long legendId, boolean display) {
+		this.legendId = legendId;
+		this.display = display;
+	}
+
+	public Long getLegendId() {
+		return legendId;
+	}
+
+	public void setLegendId(Long legendId) {
+		this.legendId = legendId;
+	}
+
+	public void setDisplay(boolean display) {
+		this.display = display;
+	}
 }
