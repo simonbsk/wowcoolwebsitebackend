@@ -10,8 +10,8 @@ public class Title implements Displayable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
-	@Column(name = "title_id")
-	private Long titleId;
+	@Column(name = "id")
+	private Long id;
 
 	@Column(name = "display")
 	private boolean display;
@@ -27,25 +27,15 @@ public class Title implements Displayable {
 	public Title() {
 	}
 
-	public Title(Long titleId) {
-		this.titleId = titleId;
+	public Long getId() {
+		return id;
 	}
 
-	public Title(Long titleId, boolean display, String text) {
-		this.titleId = titleId;
-		this.display = display;
-		this.text = text;
+	public void setId(final Long id) {
+		this.id = id;
 	}
 
-	public Long getTitleId() {
-		return titleId;
-	}
-
-	public void setTitleId(Long titleId) {
-		this.titleId = titleId;
-	}
-
-	public void setDisplay(boolean display) {
+	public void setDisplay(final boolean display) {
 		this.display = display;
 	}
 
@@ -53,7 +43,7 @@ public class Title implements Displayable {
 		return text;
 	}
 
-	public void setText(String text) {
+	public void setText(final String text) {
 		this.text = text;
 	}
 }

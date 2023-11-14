@@ -10,8 +10,8 @@ public class Ticks {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
-	@Column(name = "ticks_id")
-	private Long ticksId;
+	@Column(name = "id")
+	private Long id;
 
 	@Column(name = "min")
 	private int min;
@@ -22,29 +22,19 @@ public class Ticks {
 	public Ticks() {
 	}
 
-	public Ticks(Long ticksId) {
-		this.ticksId = ticksId;
+	public Long getId() {
+		return id;
 	}
 
-	public Ticks(Long ticksId, int min, int max) {
-		this.ticksId = ticksId;
-		this.min = min;
-		this.max = max;
-	}
-
-	public Long getTicksId() {
-		return ticksId;
-	}
-
-	public void setTicksId(Long ticksId) {
-		this.ticksId = ticksId;
+	public void setId(final Long id) {
+		this.id = id;
 	}
 
 	public int getMin() {
 		return min;
 	}
 
-	public void setMin(int min) {
+	public void setMin(final int min) {
 		this.min = min;
 	}
 
@@ -52,7 +42,7 @@ public class Ticks {
 		return max;
 	}
 
-	public void setMax(int max) {
+	public void setMax(final int max) {
 		this.max = max;
 	}
 }

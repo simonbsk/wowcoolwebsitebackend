@@ -1,6 +1,7 @@
 package com.wowcoolwebsitebackend.chart.data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -13,37 +14,28 @@ public class Scales {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
-	@Column(name = "scales_id")
-	private Long scalesId;
+	@Column(name = "id")
+	private Long id;
 
 	@OneToMany(mappedBy = "scales")
-	private ArrayList<YAxis> yAxis;
+	private List<YAxis> yAxis = new ArrayList<>();
 
 	public Scales() {
 	}
 
-	public Scales(Long scalesId) {
-		this.scalesId = scalesId;
+	public Long getId() {
+		return id;
 	}
 
-	public Scales(Long scalesId, ArrayList<YAxis> yAxis) {
-		this.scalesId = scalesId;
-		this.yAxis = yAxis;
+	public void setId(final Long id) {
+		this.id = id;
 	}
 
-	public Long getScalesId() {
-		return scalesId;
-	}
-
-	public void setScalesId(Long scalesId) {
-		this.scalesId = scalesId;
-	}
-
-	public ArrayList<YAxis> getyAxis() {
+	public List<YAxis> getyAxis() {
 		return yAxis;
 	}
 
-	public void setyAxis(ArrayList<YAxis> yAxis) {
+	public void setyAxis(final List<YAxis> yAxis) {
 		this.yAxis = yAxis;
 	}
 }

@@ -10,10 +10,9 @@ public class YAxis {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
-	@Column(name = "yaxis_id")
-	private Long yaxisId;
+	@Column(name = "id")
+	private Long id;
 
-	//TODO add relation scales_id between yaxis_table and scales_table
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "scales_id")
@@ -27,19 +26,19 @@ public class YAxis {
 	public YAxis() {
 	}
 
-	public Long getYaxisId() {
-		return yaxisId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setYaxisId(Long yaxisId) {
-		this.yaxisId = yaxisId;
+	public void setId(final Long id) {
+		this.id = id;
 	}
 
 	public Scales getScales() {
 		return scales;
 	}
 
-	public void setScales(Scales scales) {
+	public void setScales(final Scales scales) {
 		this.scales = scales;
 	}
 
@@ -47,7 +46,7 @@ public class YAxis {
 		return ticks;
 	}
 
-	public void setTicks(Ticks ticks) {
+	public void setTicks(final Ticks ticks) {
 		this.ticks = ticks;
 	}
 }

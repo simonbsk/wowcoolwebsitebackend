@@ -11,8 +11,8 @@ public class Options {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
-	@Column(name = "options_id")
-	private Long optionsId;
+	@Column(name = "id")
+	private Long id;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "title_id")
@@ -33,31 +33,19 @@ public class Options {
 	public Options() {
 	}
 
-	public Options(Long optionsId) {
-		this.optionsId = optionsId;
+	public Long getId() {
+		return id;
 	}
 
-	public Options(Long optionsId, Title title, Legend legend, Scales scales, ChartData chartData) {
-		this.optionsId = optionsId;
-		this.title = title;
-		this.legend = legend;
-		this.scales = scales;
-		this.chartData = chartData;
-	}
-
-	public Long getOptionsId() {
-		return optionsId;
-	}
-
-	public void setOptionsId(Long optionsId) {
-		this.optionsId = optionsId;
+	public void setId(final Long id) {
+		this.id = id;
 	}
 
 	public Title getTitle() {
 		return title;
 	}
 
-	public void setTitle(Title title) {
+	public void setTitle(final Title title) {
 		this.title = title;
 	}
 
@@ -65,7 +53,7 @@ public class Options {
 		return legend;
 	}
 
-	public void setLegend(Legend legend) {
+	public void setLegend(final Legend legend) {
 		this.legend = legend;
 	}
 
@@ -73,7 +61,7 @@ public class Options {
 		return scales;
 	}
 
-	public void setScales(Scales scales) {
+	public void setScales(final Scales scales) {
 		this.scales = scales;
 	}
 
@@ -81,7 +69,7 @@ public class Options {
 		return chartData;
 	}
 
-	public void setChartData(ChartData chartData) {
+	public void setChartData(final ChartData chartData) {
 		this.chartData = chartData;
 	}
 }

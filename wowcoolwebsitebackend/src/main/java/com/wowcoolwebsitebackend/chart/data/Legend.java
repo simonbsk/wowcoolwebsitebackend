@@ -10,8 +10,8 @@ public class Legend implements Displayable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
-	@Column(name = "legend_id")
-	private Long legendId;
+	@Column(name = "id")
+	private Long id;
 
 	@Column(name = "display")
 	private boolean display;
@@ -24,24 +24,15 @@ public class Legend implements Displayable {
 	public Legend() {
 	}
 
-	public Legend(Long legendId) {
-		this.legendId = legendId;
+	public Long getId() {
+		return id;
 	}
 
-	public Legend(Long legendId, boolean display) {
-		this.legendId = legendId;
-		this.display = display;
+	public void setId(final Long id) {
+		this.id = id;
 	}
 
-	public Long getLegendId() {
-		return legendId;
-	}
-
-	public void setLegendId(Long legendId) {
-		this.legendId = legendId;
-	}
-
-	public void setDisplay(boolean display) {
+	public void setDisplay(final boolean display) {
 		this.display = display;
 	}
 }

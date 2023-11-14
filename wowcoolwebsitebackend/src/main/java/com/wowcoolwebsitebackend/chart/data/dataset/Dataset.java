@@ -1,8 +1,10 @@
-package com.wowcoolwebsitebackend.chart.data;
+package com.wowcoolwebsitebackend.chart.data.dataset;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.wowcoolwebsitebackend.chart.data.Data;
 
 import jakarta.persistence.*;
 
@@ -27,18 +29,18 @@ public class Dataset {
 
 	@Column(name = "point_background_color")
 	private String pointBackgroundColor;
-	//TODO FIX ALL 3 TABLES AND MAKE THEM ONE TO MANY / MANY TO ONE INSTEAD OF ELELMENTCOLLECTION + google @ElementCollection annotation and how to use properly
-	@ElementCollection
-	@CollectionTable(name = "dataset_border_color_table")
-	private ArrayList<String> dataSetBorderColor;
 
-	@ElementCollection
-	@CollectionTable(name = "dataset_bar_color_table")
-	private ArrayList<String> dataSetBarColor;
+	//TODO fix dataset_id relation in DB
+	@OneToMany(mappedBy = "dataset", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<DatasetBorderColor> dataSetBorderColor = new ArrayList<>();
 
-	@ElementCollection
-	@CollectionTable(name = "dataset_data_table")
-	private ArrayList<String> datasetData;
+	//TODO fix dataset_id relation in DB
+	@OneToMany(mappedBy = "dataset", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<DatasetBarColor> dataSetBarColor = new ArrayList<>();
+
+	//TODO fix dataset_id relation in DB
+	@OneToMany(mappedBy = "dataset", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<DatasetData> datasetData = new ArrayList<>();
 
 	@Column(name = "fill")
 	private boolean fill;
@@ -50,7 +52,9 @@ public class Dataset {
 		this.datasetId = datasetId;
 	}
 
-	public Dataset(Long datasetId, Data data, int pointRadius, String pointBackgroundColor, ArrayList<String> dataSetBorderColor, ArrayList<String> dataSetBarColor, ArrayList<String> datasetData, boolean fill) {
+	public Dataset(final Long datasetId, final Data data, final int pointRadius, final String pointBackgroundColor,
+			final List<DatasetBorderColor> dataSetBorderColor, final List<DatasetBarColor> dataSetBarColor, final List<DatasetData> datasetData,
+			final boolean fill) {
 		this.datasetId = datasetId;
 		this.data = data;
 		this.pointRadius = pointRadius;
@@ -93,27 +97,27 @@ public class Dataset {
 		this.pointBackgroundColor = pointBackgroundColor;
 	}
 
-	public ArrayList<String> getDataSetBorderColor() {
+	public List<DatasetBorderColor> getDataSetBorderColor() {
 		return dataSetBorderColor;
 	}
 
-	public void setDataSetBorderColor(ArrayList<String> dataSetBorderColor) {
+	public void setDataSetBorderColor(final List<DatasetBorderColor> dataSetBorderColor) {
 		this.dataSetBorderColor = dataSetBorderColor;
 	}
 
-	public ArrayList<String> getDataSetBarColor() {
+	public List<DatasetBarColor> getDataSetBarColor() {
 		return dataSetBarColor;
 	}
 
-	public void setDataSetBarColor(ArrayList<String> dataSetBarColor) {
+	public void setDataSetBarColor(final List<DatasetBarColor> dataSetBarColor) {
 		this.dataSetBarColor = dataSetBarColor;
 	}
 
-	public ArrayList<String> getDatasetData() {
+	public List<DatasetData> getDatasetData() {
 		return datasetData;
 	}
 
-	public void setDatasetData(ArrayList<String> datasetData) {
+	public void setDatasetData(final List<DatasetData> datasetData) {
 		this.datasetData = datasetData;
 	}
 
