@@ -1,27 +1,18 @@
-package com.wowcoolwebsitebackend.chart.data;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.wowcoolwebsitebackend.chart.classes;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "legend_table")
-public class Legend implements Displayable {
+@Table(name = "title")
+class Title {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonIgnore
-	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "display")
 	private boolean display;
+	private String text;
 
-	@Override
-	public boolean isDisplay() {
-		return display;
-	}
-
-	public Legend() {
+	public Title() {
 	}
 
 	public Long getId() {
@@ -32,7 +23,19 @@ public class Legend implements Displayable {
 		this.id = id;
 	}
 
+	public boolean isDisplay() {
+		return display;
+	}
+
 	public void setDisplay(final boolean display) {
 		this.display = display;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(final String text) {
+		this.text = text;
 	}
 }

@@ -1,11 +1,11 @@
-package com.wowcoolwebsitebackend.chart;
+package com.wowcoolwebsitebackend.chart.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.wowcoolwebsitebackend.chart.data.Chart;
+import com.wowcoolwebsitebackend.chart.classes.Chart;
 
 @Repository
 public interface ChartRepository extends JpaRepository<Chart, Long> {
-    Chart findByChartId(Long chartId);
 }
+
