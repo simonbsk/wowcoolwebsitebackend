@@ -12,8 +12,9 @@ class Scales {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<YAxes> yAxes;
+
 	public Scales() {
 	}
 

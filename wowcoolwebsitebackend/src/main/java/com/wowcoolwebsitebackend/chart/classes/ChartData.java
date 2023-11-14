@@ -3,6 +3,7 @@ package com.wowcoolwebsitebackend.chart.classes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class ChartData {
 	@JsonIgnore
 	private Long id;
 
+	@Column(name = "type")
 	private String type;
 
 	@OneToOne(cascade = CascadeType.ALL)

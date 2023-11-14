@@ -11,6 +11,7 @@ public class Chart {
 	@Column(name = "id")
 	private Long id;
 
+	@Column(name = "chart_name")
 	private String chartName;
 	@OneToOne
 	@JoinColumn(name = "chart_data_id")
