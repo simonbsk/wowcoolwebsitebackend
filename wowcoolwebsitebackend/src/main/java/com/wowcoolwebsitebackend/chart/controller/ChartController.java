@@ -14,11 +14,7 @@ public record ChartController (ChartService chartService) {
 
 	@GetMapping("/all")
 	public List<Chart> getAllCharts() {
-		List<Chart> chartList = chartService.getAllCharts();
-		if (chartList.isEmpty()) {
-			System.out.println("-----------------Liste ist leer----------");
-		}
-		return chartList;
+		return chartService.getAllCharts();
 	}
 
 

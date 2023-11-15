@@ -1,0 +1,4 @@
+1. make json in frontend remove "chartName" and just place the chart name as string
+2. do the same thing as above but for "chartData"
+3. make a lot of IDs disappear using @JsonIgnore
+4. make "" appear from the variables so its not "values": [] but just values: []
